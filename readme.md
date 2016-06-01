@@ -1,2 +1,2 @@
-#comprobador 
-sistema para comprobar codigo sql con interfaz grafica
+#Comprobador 
+Sistema para comprobar código SQL con interfaz gráfica.
