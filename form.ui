@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #ffffff;</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
     <number>35</number>
@@ -36,6 +39,10 @@
        <width>16777215</width>
        <height>385</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #7e7e7e;
+border-color: rgb(214, 214, 214);</string>
      </property>
     </widget>
    </item>
@@ -73,6 +80,10 @@
        <pointsize>24</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #7e7e7e;
+border-color: rgb(214, 214, 214);</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="0" colspan="3">
@@ -85,9 +96,15 @@
      </property>
      <property name="font">
       <font>
-       <family>Impact</family>
-       <pointsize>41</pointsize>
+       <family>Helvetica Neue</family>
+       <pointsize>64</pointsize>
+       <weight>1</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 11 64pt &quot;Helvetica Neue&quot;;</string>
      </property>
      <property name="text">
       <string>Pregunta a hacer</string>
