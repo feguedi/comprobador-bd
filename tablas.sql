@@ -1,7 +1,7 @@
 CREATE TABLE 'carro'(
 'id_carro' int(11) NOT NULL,
 'nombre'  varchar(11) NOT NULL,
-'año'     int(5) NOT NULL,
+'modelo'     int(5) NOT NULL,
 'tipo'    varchar(11) NOT NULL,
 'version' varchar(11) NOT NULL,
 'color'   varchar(11) NOT NULL,
@@ -13,7 +13,6 @@ CREATE TABLE 'marca'(
 'id_marca' int(11) NOT NULL,
 'nombre'   varchar(11) NOT NULL,
 'categoria' varchar(11) NOT NULL,
-'modelo'   varchar(11) NOT NULL,
 PRIMARY KEY ('id_marca')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
