@@ -17,11 +17,10 @@ class UiForm(QWidget):
         self.instrucciones()
 
     def instrucciones(self):
-
         self.mensaje = """\
         <h1>Instrucciones</h1>
         <p>Este es un validador de codigo para consultas PL/SQL
-        <p>
+        <p>A tu lado izquierdo encontrarás una caja de texto y del lado derecho una vista de tablas que
         """
 
     def setup_ui(self, Form):
@@ -45,7 +44,7 @@ class UiForm(QWidget):
         self.btn_query = QtWidgets.QPushButton(Form)
         self.btn_query.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("src/success.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("src/search.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_query.setIcon(icon)
         self.btn_query.setIconSize(QtCore.QSize(75, 75))
         self.btn_query.setFlat(True)
@@ -69,7 +68,7 @@ class UiForm(QWidget):
         self.label = QtWidgets.QLabel(Form)
         self.label.setMaximumSize(QtCore.QSize(16777215, 150))
         font = QtGui.QFont()
-        font.setFamily("Helvetica Neue")
+        font.setFamily("src/fonts/HelveticaNeueUltraLight.ttf")
         font.setPointSize(64)
         font.setBold(False)
         font.setItalic(False)
