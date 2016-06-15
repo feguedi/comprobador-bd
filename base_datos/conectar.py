@@ -1,3 +1,8 @@
 import cx_Oracle
 
-cx_Oracle.connect('')
+#             usuario/contraseña@nombreservidor/nombreconexión
+con = cx_Oracle.connect('hr/hr@localhost/orcl')
+
+print(con.version)
+
+con.close()

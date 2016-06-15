@@ -8,11 +8,13 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget, QApplication
+import cx_Oracle
 
 
 class UiForm(QWidget):
     def __init__(self):
         super().__init__()
+        self.con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
         self.setup_ui(self)
         self.instrucciones()
 

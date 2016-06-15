@@ -1,7 +1,4 @@
 1. Selecciona la cantidad de autos modelo "Spark" y muestra los distribuidores en donde hay.
 2. Muestra la cantidad de Volkswagen Jetta color blanco y negro en X y Y sucursales
-3. Muestra todas las camionetas Van del año 2008 en todas los distribuidores.
-4. Muestra los modelos en total que tiene X marca.
-5. Muestra los colores de autos en X sucursal.
-6. Muestra las versiones del modelo X en todas las sucursales.
-7. Muestra el color que más se repita en X sucursal.
+3. Muestra las versiones del modelo X en todas las sucursales.
+4. Muestra el color que más se repita en X sucursal.
