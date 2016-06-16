@@ -22,3 +22,10 @@ FROM distribuidor
 [NATURAL JOIN carro]
 [JOIN carro USING (carro.modelo)]
 ON (carro.modelo = "2010");
+
+select id_mar, CANTIDAD
+from carro 
+JOIN STOCK
+ON carro.ID_CAR = STOCK.ID_CAR
+WHERE carro.ID_CAR = 123;
+
