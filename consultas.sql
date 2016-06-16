@@ -2,7 +2,7 @@ SELECT 	STOCK.CANTIDAD AS "Cantidad_Spark", DISTRIBUIDOR.NOMBRE
 FROM DISTRIBUIDOR JOIN STOCK
 USING (STOCK)
 on STOCK.ID_DIS = DISTRIBUIDOR.ID_DIS
-WHERE STOCK.ID_CAR = "963"
+WHERE STOCK.ID_CAR = "963";
 
 SELECT stock.cantidad AS "cantidad_jetta", distribuidor.nombre, carro.color
 FROM distribuidor JOIN stock JOIN carro
