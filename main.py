@@ -27,6 +27,7 @@ class UiForm(QWidget):
         super().__init__()
         # self.con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
         self.setup_ui(self)
+        self.boton = False
         self.instrucciones()
 
     def instrucciones(self):
@@ -35,6 +36,7 @@ class UiForm(QWidget):
         <p>Este es un validador de codigo para consultas PL/SQL
         <p>A tu lado izquierdo encontrarás una caja de texto y del lado derecho una vista de tablas que
         """
+        # QtWidgets.QDialog.accept(self.mensaje)
 
     def setup_ui(self, Form):
         Form.setObjectName("Form")
@@ -135,11 +137,15 @@ class UiForm(QWidget):
             self.busq = self.busq.replace('\n', ' ')
             self.busq = self.busq.replace('  ', ' ')
         self.busq = self.busq.split(' ')
+        self.boton = True
         print(self.busq)
         print(comp.texto(self.busq))
 
     def vista(self):
         self.tableView.setModel(model)
+        if self.boton is True:
+            self.boton = False
+            self.tableView.clearSelection()
 
 
 if __name__ == '__main__':
