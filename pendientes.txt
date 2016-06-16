@@ -8,5 +8,4 @@ Conexión
 1. Establecer parámetros para conectarse
 
 Base de Datos
-1. Que Leo se presente
-2. Insertar más datos
+1. Insertar más datos

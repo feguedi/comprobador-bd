@@ -29,6 +29,7 @@ class UiForm(QWidget):
         self.setup_ui(self)
         self.boton = False
         self.instrucciones()
+        self.contador = 1
 
     def instrucciones(self):
         self.mensaje = """\
@@ -133,6 +134,9 @@ class UiForm(QWidget):
     def query(self):
         import comprobador.comprobador as comp
         self.busq = self.txt_query.toPlainText()
+        self.contador += 1
+        if self.contador is 5:
+            self.contador = 1
         for i in range(len(self.busq)):
             self.busq = self.busq.replace('\n', ' ')
             self.busq = self.busq.replace('  ', ' ')
