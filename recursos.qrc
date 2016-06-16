@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/texto">
+        <file>src/palabras.txt</file>
+    </qresource>
+    <qresource prefix="/imagenes">
+        <file>src/appbar.database.sql.svg</file>
+        <file>src/database.svg</file>
+        <file>src/equal-1.svg</file>
+        <file>src/error.svg</file>
+        <file>src/search.svg</file>
+        <file>src/success.svg</file>
+    </qresource>
+    <qresource prefix="/fuentes">
+        <file>src/fonts/DejaVuSansMono.ttf</file>
+        <file>src/fonts/HelveticaNeueUltraLight.ttf</file>
+        <file>src/fonts/Roboto-Light.ttf</file>
+        <file>src/fonts/Roboto-Thin.ttf</file>
+        <file>src/fonts/Roboto-Regular.ttf</file>
+    </qresource>
+</RCC>

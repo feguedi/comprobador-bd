@@ -1,0 +1,12 @@
+Aplicación
+1. Importar datos al TableView
+2. Darle estilo al TableView
+3. Comprobar correctamente que se estén metiendo los datos
+4. Remota posibilidad de insertar un completador
+
+Conexión
+1. Establecer parámetros para conectarse
+
+Base de Datos
+1. Que Leo se presente
+2. Insertar más datos

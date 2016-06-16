@@ -8,13 +8,24 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtSql import QSqlQueryModel
 import cx_Oracle
+import recursos_rc
+
+preguntas = {
+    1: 'Selecciona la cantidad de autos modelo "Spark" y muestra los distribuidores en donde hay.',
+    2: 'Muestra la cantidad de Volkswagen Jetta color blanco y negro en X y Y sucursales',
+    3: 'Muestra las versiones del modelo X en todas las sucursales.',
+    4: 'Muestra el color que más se repita en X sucursal.'
+}
+
+model = QSqlQueryModel()
 
 
 class UiForm(QWidget):
     def __init__(self):
         super().__init__()
-        self.con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
+        # self.con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
         self.setup_ui(self)
         self.instrucciones()
 
@@ -31,6 +42,8 @@ class UiForm(QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("src/database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
+        Form.setMaximumWidth(1200)
+        Form.setMaximumHeight(820)
         Form.setStyleSheet("background-color: #ffffff;")
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setContentsMargins(35, 35, 35, 35)
@@ -59,7 +72,7 @@ class UiForm(QWidget):
         self.txt_query = QtWidgets.QPlainTextEdit(Form)
         self.txt_query.setMaximumSize(QtCore.QSize(16777215, 385))
         font = QtGui.QFont()
-        font.setFamily("DejaVu Sans Mono")
+        font.setFamily("src/fonts/DejaVuSansMono.ttf")
         font.setPointSize(14)
         self.txt_query.setFont(font)
         self.txt_query.setObjectName("txt_query")
@@ -70,12 +83,12 @@ class UiForm(QWidget):
         self.label = QtWidgets.QLabel(Form)
         self.label.setMaximumSize(QtCore.QSize(16777215, 150))
         font = QtGui.QFont()
-        font.setFamily("src/fonts/HelveticaNeueUltraLight.ttf")
+        font.setFamily("src/fonts/Roboto-Thin.ttf")
         font.setPointSize(64)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(1)
-        stl_encabezados = """font: 18pt \"Roboto\";\n
+        # font.setWeight(1)
+        stl_encabezados = """/*font: 18pt \"Roboto\";*/\n
                           background-color: rgb(48, 63, 159);\n
                           color: rgb(255, 255, 255);"""
         self.label.setFont(font)
@@ -124,6 +137,9 @@ class UiForm(QWidget):
         self.busq = self.busq.split(' ')
         print(self.busq)
         print(comp.texto(self.busq))
+
+    def vista(self):
+        self.tableView.setModel(model)
 
 
 if __name__ == '__main__':
