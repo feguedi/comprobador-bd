@@ -5,7 +5,7 @@ con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
 cur = con.cursor()
 myvar = cur.var(cx_Oracle.NUMBER)
 cur.callproc('myproc', (123, myvar))
-print myvar.getvalue()
+print(myvar.getvalue())
 
 cur.close()
 con.close()

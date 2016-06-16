@@ -12,7 +12,7 @@ res = cur.fetchall()
 # print res  # uncomment to display the query results
 
 elapsed = (time.time() - start)
-print elapsed, "seconds"
+print(elapsed, "seconds")
 
 cur.close()
 con.close()
