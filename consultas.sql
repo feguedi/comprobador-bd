@@ -14,6 +14,6 @@ WHERE stock.ID_carro = "10101" AND
 
 SELECT carro.nombre, distribuidor.nombre
 FROM distribuidor
-[NATURAL JOIN carro
+[NATURAL JOIN carro]
 [JOIN carro USING (carro.modelo)]
 ON (carro.modelo = "2010");
