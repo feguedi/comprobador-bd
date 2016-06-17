@@ -23,6 +23,15 @@ FROM distribuidor
 [JOIN carro USING (carro.modelo)]
 ON (carro.modelo = "2010");
 
+ // pregunta 3 rafa
+SELECT CAR.VERSION AS "versiondes del modelo Coupe", DISTRIBUIDOR.NOMBRE
+FROM CAR
+inner JOIN DISTRIBUIDOR 
+on DISTRIBUIDOR.ID_DIS = STOCK.ID_DIS
+inner JOIN STOCK
+on STOCK.ID_car = car.ID_car
+WHERE CAR.MODELO= "Coupé";
+
 // PREGUNTA 3
 SELECT carro.ID_CAR, carro.NOMBRE, carro.MODELO, stock.CANTIDAD, carro.COLOR, DISTRIBUIDOR.NOMBRE, DISTRIBUIDOR.UBICACION FROM carro  
     INNER JOIN STOCK ON STOCK.ID_CAR = CARRO.ID_CAR
