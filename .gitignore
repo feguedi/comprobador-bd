@@ -63,6 +63,7 @@ target/
 
 # PyCharm
 .idea/
+/Ejemplos/Files/.idea/
 
 # Visual Studio Code
 .vscode/

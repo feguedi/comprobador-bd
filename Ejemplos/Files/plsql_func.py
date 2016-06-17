@@ -4,7 +4,7 @@ con = cx_Oracle.connect('pythonhol/welcome@localhost/orcl')
 
 cur = con.cursor()
 res = cur.callfunc('myfunc', cx_Oracle.NUMBER, ('abc', 2))
-print res
+print(res)
 
 cur.close()
 con.close()
