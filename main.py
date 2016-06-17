@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QDialog
 from PyQt5.QtSql import QSqlQueryModel
 import cx_Oracle
 import recursos_rc
@@ -29,21 +29,9 @@ class UiForm(QWidget):
         self.setup_ui(self)
         self.datos = []
         self.boton = False
-        self.instrucciones()
-
-    def instrucciones(self):
-        self.mensaje = """\
-        <h1>Instrucciones</h1>
-        <p>Este es un validador de codigo para consultas <b>PL/SQL</b>
-        <p>En la parte superior encontrarás una caja de texto donde se deberá ingresar tu consulta y en la parte \
-        inferior una vista de tablas que te permitirá saber el resultado de tu consulta. De ser correcta tu consulta \
-        de acuerdo a lo que solicita la pregunta, mostrará un mensaje que te lo confirmará
-        <h2>Atajos</h2>
-        <p>El único atajo
-        """
-        # QtWidgets.QDialog.accept(self.mensaje)
 
     def setup_ui(self, Form):
+        print("Abriendo Main")
         self.contador = 1
         Form.setObjectName("Form")
         Form.resize(1280, 960)
@@ -201,7 +189,7 @@ class UiForm(QWidget):
 
     def vista(self):
         self.tableView.setModel(model)
-        self.datos.append()
+        # self.datos.append()
         if self.boton is True:
             self.boton = False
             self.tableView.clearSelection()
@@ -233,10 +221,78 @@ class UiForm(QWidget):
             self.label.setText(preguntas.get(4))
 
 
+class UiDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setup_dialogo(self)
+        self.mensaje = """\
+        <h1>Instrucciones</h1>
+        <p>Este es un validador de codigo para consultas <b>PL/SQL</b>
+        <p>En la parte superior encontrarás una caja de texto donde se deberá ingresar tu consulta y en la parte \
+        inferior una vista de tablas que te permitirá saber el resultado de tu consulta. De ser correcta tu consulta \
+        de acuerdo a lo que solicita la pregunta, mostrará un mensaje que te lo confirmará
+        <h2>Atajos</h2>
+        <p>El único atajo
+        """
+        self.permiso = False
+
+    def setup_dialogo(self, Dialog):
+        Dialog.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(640, 480)
+        Dialog.setMinimumSize(QtCore.QSize(640, 480))
+        Dialog.setMaximumSize(QtCore.QSize(640, 480))
+        Dialog.setStyleSheet("background-color: white;")
+        self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
+        self.verticalLayout.setContentsMargins(20, 20, 20, 20)
+        self.verticalLayout.setSpacing(20)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setMinimumSize(QtCore.QSize(0, 340))
+        self.label.setMaximumSize(QtCore.QSize(640, 340))
+        self.label.setStyleSheet("background-color: transparent;\n"
+                                 "font: 12pt \"Sans Serif\";")
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
+        self.buttonBox.setMinimumSize(QtCore.QSize(0, 80))
+        self.buttonBox.setMaximumSize(QtCore.QSize(640, 80))
+        self.buttonBox.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setCenterButtons(True)
+        self.buttonBox.setObjectName("buttonBox")
+        self.verticalLayout.addWidget(self.buttonBox)
+
+        self.retranslateUi(Dialog)
+        self.buttonBox.accepted.connect(self.abrir_main)
+        self.buttonBox.rejected.connect(exit)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Inicio"))
+        self.label.setText(_translate("Dialog", """\
+        <h1>Validador de código <b>PL/SQL</b></h1>
+        <h2>Instrucciones</h2>
+        <p>En la parte superior encontrarás una caja de texto donde se deberá ingresar tu consulta y en la parte \
+        inferior una vista de tablas que te permitirá saber el resultado de tu consulta. De ser correcta tu consulta \
+        de acuerdo a lo que solicita la pregunta, mostrará un mensaje que te lo confirmará
+        <h2>Atajos</h2>
+        <p>El único atajo
+        """))
+
+    @staticmethod
+    def abrir_main():
+        x.hide()
+        y.show()
+
 if __name__ == '__main__':
     import sys
 
     app = QApplication(sys.argv)
-    x = UiForm()
+    x = UiDialog()
+    y = UiForm()
     x.show()
     sys.exit(app.exec_())
