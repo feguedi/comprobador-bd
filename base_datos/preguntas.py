@@ -14,6 +14,7 @@ def pregunta_1():
                              QMessageBox.Cancel)
         return False
     cur = con.cursor()
+    # Aquí se agrega el query de PL/SQL
     cur.execute('SELECT STOCK.CANTIDAD AS "CANTIDAD_SPARK", DISTRIBUIDOR.NOMBRE'
                 'FROM DISTRIBUIDOR'
                 'INNER JOIN STOCK'
@@ -38,7 +39,19 @@ def pregunta_2():
                              QMessageBox.Cancel)
         return False
     cur = con.cursor()
-    cur.execute('')
+    # Aquí se agrega el query de PL/SQL
+    cur.execute('SELECT STOCK.CANTIDAD AS "cantidad_jetta", DISTRIBUIDOR.NOMBRE, car.color'
+                'FROM distribuidor'
+                'inner JOIN stock'
+                'on STOCK.ID_DIS = DISTRIBUIDOR.ID_DIS'
+                'inner JOIN car'
+                'on STOCK.ID_car = car.ID_car'
+                'WHERE stock.ID_car = 963 OR'
+                'stock.ID_car = 753 OR'
+                'car.color = \'cafe\' OR'
+                'car.color = \'violeta\' AND'
+                'distribuidor.nombre = \'Automotors\' OR'
+                'distribuidor.nombre = \'Motorsort\';\'')
     respuesta = []
     for i in cur:
         respuesta.append(i)
@@ -58,7 +71,13 @@ def pregunta_3():
                              QMessageBox.Cancel)
         return False
     cur = con.cursor()
-    cur.execute('')
+    # Aquí se agrega el query de PL/SQL
+    cur.execute(
+        'SELECT carro.ID_CAR, carro.NOMBRE, carro.MODELO, stock.CANTIDAD, carro.COLOR, DISTRIBUIDOR.NOMBRE, '
+        'DISTRIBUIDOR.UBICACION FROM carro'
+        '\nINNER JOIN STOCK ON STOCK.ID_CAR = CARRO.ID_CAR'
+        '\nINNER JOIN DISTRIBUIDOR ON DISTRIBUIDOR.ID_DIS = STOCK.ID_DIS'
+        '\nWHERE carro.ID_MAR = 102;')
     respuesta = []
     for i in cur:
         respuesta.append(i)
@@ -78,6 +97,7 @@ def pregunta_4():
                              QMessageBox.Cancel)
         return False
     cur = con.cursor()
+    # Aquí se agrega el query de PL/SQL
     cur.execute('')
     respuesta = []
     for i in cur:

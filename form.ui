@@ -49,39 +49,11 @@
     <number>35</number>
    </property>
    <property name="horizontalSpacing">
-    <number>30</number>
+    <number>6</number>
    </property>
    <property name="verticalSpacing">
     <number>0</number>
    </property>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>150</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Helvetica Neue</family>
-       <pointsize>35</pointsize>
-       <weight>0</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 7 35pt &quot;Helvetica Neue&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Selecciona la cantidad de autos modelo &quot;Spark&quot; y muestra los distribuidores en donde hay.</string>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="0">
     <widget class="QPlainTextEdit" name="txt_query">
      <property name="maximumSize">
@@ -112,6 +84,9 @@ WHERE</string>
     <widget class="QPushButton" name="btn_query">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>Ejecutar la consulta</string>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton:pressed {
@@ -231,6 +206,151 @@ color: rgb(255, 255, 255);</string>
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>112</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>150</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica Neue</family>
+       <pointsize>35</pointsize>
+       <weight>0</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 7 35pt &quot;Helvetica Neue&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Selecciona la cantidad de autos modelo &quot;Spark&quot; y muestra los distribuidores en donde hay.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>27</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btn_atras">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Anterior</string>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton:pressed {
+background-color: transparent;
+border: none;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>src/btn_atr.svg</normaloff>src/btn_atr.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>82</height>
+        </size>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="lineWidth">
+        <number>10</number>
+       </property>
+       <property name="midLineWidth">
+        <number>0</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_siguiente">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Siguiente</string>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton:pressed {
+background-color: transparent;
+border: none;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>src/btn_sig.svg</normaloff>src/btn_sig.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>31</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

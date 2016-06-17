@@ -1,8 +1,12 @@
 # Objeto x debe ser una lista
 def texto(x):
-    print(len(x))
-    for i in range(len(x)):
-        if x[i] == "DELETE" or x[i] == "ALTER" or x[i] == "DROP" or x[i] == "CREATE" or x[i] == "delete" or x[i] == "alter" or x[i] == "drop" or x[i] == "create":
+    iterador = len(x)
+    print(iterador)
+    for i in range(iterador):
+        print("Evaluando:", x[i])
+        if x[i] is "DELETE" or x[i] is "ALTER" or x[i] is "DROP" or x[i] is "CREATE":
+            return False
+        elif x[i] is "delete" or x[i] is "alter" or x[i] is "drop" or x[i] is "create":
             return False
         else:
             return True
