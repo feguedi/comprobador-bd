@@ -27,6 +27,7 @@ class UiForm(QWidget):
         self.boton = False
 
     def setup_ui(self, Form):
+        from sys import platform
         self.contador = 1
         Form.setObjectName("Form")
         Form.resize(1280, 960)
@@ -45,7 +46,12 @@ class UiForm(QWidget):
         self.txt_query = QtWidgets.QPlainTextEdit(Form)
         self.txt_query.setMaximumSize(QtCore.QSize(16777215, 347))
         font = QtGui.QFont()
-        font.setFamily("DejaVu Sans Mono")
+        if platform == 'linux':
+            font.setFamily("DejaVu Sans Mono")
+        elif platform == 'win32':
+            font.setFamily("Terminal")
+        elif platform == 'darwin':
+            font.setFamily("Comic Sans")
         font.setPointSize(14)
         self.txt_query.setFont(font)
         self.txt_query.setStyleSheet("border: 2px solid #7e7e7e;\n"
@@ -99,8 +105,15 @@ class UiForm(QWidget):
         self.label.setMaximumSize(QtCore.QSize(16777215, 150))
         self.label.setMinimumSize(QtCore.QSize(1083, 112))
         font = QtGui.QFont()
-        font.setFamily("Helvetica Neue")
-        font.setPointSize(35)
+        if platform == 'linux':
+            font.setFamily("Helvetica Neue")
+            font.setPointSize(35)
+        elif platform == 'win32':
+            font.setFamily("Arial")
+            font.setPointSize(30)
+        elif platform == 'darwin':
+            font.setFamily("Comic Sans")
+            font.setPointSize(35)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(0)
@@ -184,10 +197,12 @@ class UiForm(QWidget):
         self.valor = True
         for i in range(len(self.busq)):
             print(self.busq[i])
-            self.valor = self.valor and comp.texto(self.busq[i])
-        comp.mensaje(self.valor)
+            self.valor = self.valor and comp.texto(self.busq[i], contador)
+        vista(comp.mensaje(self.valor))
 
     def vista(self, lista):
+        modelo = QSqlQueryModel()
+        modelo.dat
         self.tableView.setModel(QSqlQueryModel())
         if self.boton is True:
             self.boton = False
@@ -195,7 +210,8 @@ class UiForm(QWidget):
         # El parámetro lista debe ser, precisamente, una lista
         self.tableView.setCornerButtonEnabled(False)
         for enc in range(len(lista)):
-            self.tableView.setHorizontalHeader(lista)
+
+            self.tableView.
 
     def boton_atras(self):
         if self.contador is 1:

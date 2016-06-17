@@ -1,29 +1,32 @@
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon, QPixmap
+import comprobador.comparar as comparar
 
 
 # Objeto x debe ser una lista
-def texto(x):
+def texto(lista, contador):
     prev = True
-    print("Evaluando:", x)
-    if x is "DELETE" or x is "ALTER" or x is "DROP" or x is "CREATE":
+    print("Evaluando:", lista)
+    if lista is "DELETE" or lista is "ALTER" or lista is "DROP" or lista is "CREATE":
         prev = False
-    elif x is "delete" or x is "alter" or x is "drop" or x is "create":
+    elif lista is "delete" or lista is "alter" or lista is "drop" or lista is "create":
         prev = False
+    else:
+        comparar.comp(contador, )
     return prev
 
 
 def mensaje(valor):
     qmsgBox = QMessageBox()
     qmsgBox.setStyleSheet(
-            'QMessageBox {background-color: #2b5b84; color: white;}\n'
-            'QPushButton{color: white;\n'
-            'font-size: 16px; '
-            'background-color: #1d1d1d; '
-            'border-radius: 10px; '
-            'padding: 10px; '
-            'text-align: center;}\n'
-            'QPushButton:hover{color: #2b5b84;}')
+        'QMessageBox {background-color: #2b5b84; color: white;}\n'
+        'QPushButton{color: white;\n'
+        'font-size: 16px; '
+        'background-color: #1d1d1d; '
+        'border-radius: 10px; '
+        'padding: 10px; '
+        'text-align: center;}\n'
+        'QPushButton:hover{color: #2b5b84;}')
     icon = QIcon()
     if not valor:
         icon.addPixmap(QPixmap("src/error.svg"), QIcon.Normal, QIcon.Off)
@@ -43,6 +46,7 @@ def mensaje(valor):
                           'No ingrese instrucciones para insertar, borrar o crear datos'
                           ' o tablas.')
         return True
+
 
 if __name__ == '__main__':
     texto('CREATE')

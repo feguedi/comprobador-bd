@@ -15,9 +15,9 @@ def pregunta_1():
     cur = con.cursor()
     # Aquí se agrega el query de PL/SQL
     cur.execute('SELECT STOCK.CANTIDAD AS "CANTIDAD_SPARK", DISTRIBUIDOR.NOMBRE'
-                'FROM DISTRIBUIDOR'
-                'INNER JOIN STOCK'
-                'ON STOCK.ID_DIS = DISTRIBUIDOR.ID_DIS'
+                'FROM DISTRIBUIDOR '
+                'INNER JOIN STOCK '
+                'ON STOCK.ID_DIS = DISTRIBUIDOR.ID_DIS '
                 'WHERE STOCK.ID_CAR = 963;')
     respuesta = []
     for i in cur.fetchall():
@@ -47,10 +47,10 @@ def pregunta_2():
                 'on STOCK.ID_car = car.ID_car'
                 'WHERE stock.ID_car = 963 OR'
                 'stock.ID_car = 753 OR'
-                'car.color = \'cafe\' OR'
-                'car.color = \'violeta\' AND'
-                'distribuidor.nombre = \'Automotors\' OR'
-                'distribuidor.nombre = \'Motorsort\';\'')
+                'car.color = "cafe" OR'
+                'car.color = "violeta" AND'
+                'distribuidor.nombre = "Automotors" OR'
+                'distribuidor.nombre = "Motorsort";')
     respuesta = []
     for i in cur.fetchall():
         respuesta.append(i)
@@ -73,10 +73,10 @@ def pregunta_3():
     # Aquí se agrega el query de PL/SQL
     cur.execute(
         'SELECT carro.ID_CAR, carro.NOMBRE, carro.MODELO, stock.CANTIDAD, carro.COLOR, DISTRIBUIDOR.NOMBRE, '
-        'DISTRIBUIDOR.UBICACION FROM carro'
-        '\nINNER JOIN STOCK ON STOCK.ID_CAR = CARRO.ID_CAR'
-        '\nINNER JOIN DISTRIBUIDOR ON DISTRIBUIDOR.ID_DIS = STOCK.ID_DIS'
-        '\nWHERE carro.ID_MAR = 102;')
+        'DISTRIBUIDOR.UBICACION FROM carro '
+        'INNER JOIN STOCK ON STOCK.ID_CAR = CARRO.ID_CAR '
+        'INNER JOIN DISTRIBUIDOR ON DISTRIBUIDOR.ID_DIS = STOCK.ID_DIS '
+        'WHERE carro.ID_MAR = 102;')
     respuesta = []
     for i in cur.fetchall():
         respuesta.append(i)
