@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QMessageBox
 
 
 def pregunta_1():
-    con = cx_Oracle.connect('system/oracle@localhost/Autos')
+    con = cx_Oracle.connect('system/oracle@localhost/XE')
     if not con.open():
         QMessageBox.critical(None, "Cannot open database",
                              "Unable to establish a database connection.\n"

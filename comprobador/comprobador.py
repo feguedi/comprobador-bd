@@ -1,18 +1,20 @@
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon, QPixmap
 import comprobador.comparar as comparar
+import base_datos.preguntas as preguntas
 
 
 # Objeto x debe ser una lista
 def texto(lista, contador):
     prev = True
     print("Evaluando:", lista)
+
     if lista is "DELETE" or lista is "ALTER" or lista is "DROP" or lista is "CREATE":
         prev = False
     elif lista is "delete" or lista is "alter" or lista is "drop" or lista is "create":
         prev = False
     else:
-        comparar.comp(contador, )
+        comparar.comp(contador, lista)
     return prev
 
 

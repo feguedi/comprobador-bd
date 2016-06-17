@@ -197,21 +197,21 @@ class UiForm(QWidget):
         self.valor = True
         for i in range(len(self.busq)):
             print(self.busq[i])
-            self.valor = self.valor and comp.texto(self.busq[i], contador)
-        vista(comp.mensaje(self.valor))
+            self.valor = self.valor and comp.texto(self.busq[i], self.contador)
+        # vista(comp.mensaje(self.valor))
 
     def vista(self, lista):
         modelo = QSqlQueryModel()
-        modelo.dat
+        # modelo.dat
         self.tableView.setModel(QSqlQueryModel())
         if self.boton is True:
             self.boton = False
             self.tableView.clearSelection()
         # El parámetro lista debe ser, precisamente, una lista
         self.tableView.setCornerButtonEnabled(False)
-        for enc in range(len(lista)):
-
-            self.tableView.
+        # for enc in range(len(lista)):
+        #
+        #     self.tableView.setModel()
 
     def boton_atras(self):
         if self.contador is 1:
