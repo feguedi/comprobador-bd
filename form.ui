@@ -282,6 +282,9 @@ border: none;
          <height>70</height>
         </size>
        </property>
+       <property name="shortcut">
+        <string>Ctrl+Shift+Backtab</string>
+       </property>
        <property name="flat">
         <bool>true</bool>
        </property>
@@ -344,6 +347,9 @@ border: none;
          <width>31</width>
          <height>70</height>
         </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+Tab</string>
        </property>
        <property name="flat">
         <bool>true</bool>

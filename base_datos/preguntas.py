@@ -1,6 +1,5 @@
 import cx_Oracle
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtSql import QSqlQuery
 
 
 def pregunta_1():
@@ -21,7 +20,7 @@ def pregunta_1():
                 'ON STOCK.ID_DIS = DISTRIBUIDOR.ID_DIS'
                 'WHERE STOCK.ID_CAR = 963;')
     respuesta = []
-    for i in cur:
+    for i in cur.fetchall():
         respuesta.append(i)
     cur.close()
     con.close()
@@ -53,7 +52,7 @@ def pregunta_2():
                 'distribuidor.nombre = \'Automotors\' OR'
                 'distribuidor.nombre = \'Motorsort\';\'')
     respuesta = []
-    for i in cur:
+    for i in cur.fetchall():
         respuesta.append(i)
     cur.close()
     con.close()
@@ -79,7 +78,7 @@ def pregunta_3():
         '\nINNER JOIN DISTRIBUIDOR ON DISTRIBUIDOR.ID_DIS = STOCK.ID_DIS'
         '\nWHERE carro.ID_MAR = 102;')
     respuesta = []
-    for i in cur:
+    for i in cur.fetchall():
         respuesta.append(i)
     cur.close()
     con.close()
@@ -100,7 +99,7 @@ def pregunta_4():
     # Aquí se agrega el query de PL/SQL
     cur.execute('')
     respuesta = []
-    for i in cur:
+    for i in cur.fetchall():
         respuesta.append(i)
     cur.close()
     con.close()
