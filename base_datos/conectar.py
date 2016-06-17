@@ -3,8 +3,8 @@ import cx_Oracle
 
 
 def crear_conexion():
-    #             usuario/contraseña@nombreservidor/nombrebbdd
-    con = cx_Oracle.connect('system/oracle@localhost/Autos')
+    #             usuario/contraseña@nombreservidor/tns
+    con = cx_Oracle.connect('system/oracle@localhost/XE')
     print(con.version)
     cerrar(con)
 
