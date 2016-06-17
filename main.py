@@ -181,9 +181,11 @@ class UiForm(QWidget):
             self.busq = self.busq.replace('  ', ' ')
         self.busq = self.busq.split(' ')
         self.boton = True
+        self.valor = True
         for i in range(len(self.busq)):
             print(self.busq[i])
-            comp.texto(self.busq[i])
+            self.valor = self.valor and comp.texto(self.busq[i])
+        comp.mensaje(self.valor)
 
     def vista(self, lista):
         self.tableView.setModel(QSqlQueryModel())
